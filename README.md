@@ -1,60 +1,57 @@
-# 03 JavaScript: Password Generator
+### Password Generator HTML
 
-Create an application that generates a random password based on user-selected criteria. The app runs in the browser and features dynamically updated HTML and CSS powered by your JavaScript code. It has a clean and polished user interface and is responsive, which ensures that it adapts to multiple screen sizes.
+This HTML file creates a user interface for generating secure passwords:
 
-If you are unfamiliar with special characters, take a look at some [examples of special characters on the OWASP Foundation website](https://www.owasp.org/index.php/Password_special_characters).
+- **Meta Tags:** Define character encoding, viewport settings, and compatibility with IE.
+- **Title:** Sets the document title to "Password Generator".
+- **Styles:** Links to an external CSS file (`style.css`) for styling.
+- **Body:**
+  - **Wrapper Div:** Contains the entire layout and styling.
+  - **Header:** Displays the main title "Password Generator".
+  - **Card Component:** 
+    - **Card Header:** Displays the secondary title "Generate a Password".
+    - **Card Body:** Contains a readonly textarea for displaying the generated password.
+    - **Card Footer:** Contains a button to generate a new password.
+- **Script:** Links to an external JavaScript file (`script.js`) for functionality.
 
-## User Story
+This setup provides a structured and styled user interface for generating secure passwords.
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
 
-## Acceptance Criteria
+### CSS Styling for Password Generator
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+This CSS code styles the Password Generator web application:
 
-The following image demonstrates the application functionality:
+- **Universal Selector:** Ensures all elements and pseudo-elements use `box-sizing: border-box`.
+- **HTML, Body, and Wrapper:** Sets height to 100% and removes margin and padding.
+- **Body:** Uses sans-serif font and a light background color.
+- **Wrapper:** Adds padding to the top and sides.
+- **Header:** Centers text and applies padding and color.
+- **Card:** Styles the card with background color, border radius, shadow, and padding.
+- **Card Header and Footer:** Adds separator lines and centers footer text.
+- **Button (.btn):** Styles with background color, border radius, shadow, padding, and other properties. Adjusts style for disabled state.
+- **Password Textarea (#password):** Removes default appearance, applies border and padding, and sets dimensions.
+- **Media Queries:** Adjusts button and textarea font sizes and padding for smaller screens (690px and 500px).
 
-![An app window with the label Password Generator, an input field labeled Your Secure Password, and a Generate Password button.](./Assets/03-javascript-homework-demo.png)
+This CSS ensures a clean, responsive, and user-friendly interface for the Password Generator application.
 
-## Review
 
-You are required to submit the following for review:
+### Password Generator Script
 
-* The URL of the deployed application.
+This JavaScript code handles generating a secure password based on user preferences:
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+- **Event Listener:** 
+  - Listens for a click event on the "Generate Password" button.
+  - Triggers the `writePassword` function.
 
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+- **writePassword Function:** 
+  - Calls the `generatePassword` function to create a new password.
+  - Updates the password textarea with the generated password.
 
-# Password Generator Code Explanation
+- **generatePassword Function:**
+  - Prompts the user to specify the password length (between 8 and 128 characters).
+  - Confirms inclusion of uppercase letters, lowercase letters, numbers, and special characters.
+  - Validates user input and ensures at least one character type is selected.
+  - Constructs a password by randomly selecting characters from the user-specified character set.
+  - Logs the generated password to the console and returns it.
 
-This document explains the JavaScript code used to create a password generator. The code prompts the user for password criteria and generates a password based on their selections.
-
-## Code Breakdown
-
-### Assignment Code
-
-```javascript
-var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", writePassword);
+This script ensures that users can generate secure and customizable passwords based on their specified criteria.
